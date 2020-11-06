@@ -29,6 +29,7 @@ public class WordChecker
     WordList wordList;
     NewCharInWordPlacer newCharInWordPlacer = new NewCharInWordPlacer();
     SwitchAdjacentChars switchAdjacentChars = new SwitchAdjacentChars();
+    DeletingCharacterFromWord deletingCharacterFromWord = new DeletingCharacterFromWord();
 
     public WordChecker(WordList wordList)
     {
@@ -63,6 +64,7 @@ public class WordChecker
         ArrayList<String> sugestions = new ArrayList<String>();
         sugestions.addAll(switchAdjacentChars.switchAdjacent(word));
         sugestions.addAll(newCharInWordPlacer.letterPlacer(word));
+        sugestions.addAll(deletingCharacterFromWord.letterDeleter(word));
         return sugestions;
 
     }
