@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -30,6 +29,7 @@ public class WordChecker
     NewCharInWordPlacer newCharInWordPlacer = new NewCharInWordPlacer();
     SwitchAdjacentChars switchAdjacentChars = new SwitchAdjacentChars();
     DeletingCharacterFromWord deletingCharacterFromWord = new DeletingCharacterFromWord();
+    LettersReplacer lettersReplacer = new LettersReplacer();
 
     public WordChecker(WordList wordList)
     {
@@ -65,6 +65,7 @@ public class WordChecker
         sugestions.addAll(switchAdjacentChars.switchAdjacent(word));
         sugestions.addAll(newCharInWordPlacer.letterPlacer(word));
         sugestions.addAll(deletingCharacterFromWord.letterDeleter(word));
+        sugestions.addAll(lettersReplacer.letterReplacer(word));
         return sugestions;
 
     }
