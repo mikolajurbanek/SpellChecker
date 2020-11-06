@@ -1,3 +1,5 @@
+package SugestionMethods;
+
 import java.util.ArrayList;
 
 public class SwitchAdjacentChars {

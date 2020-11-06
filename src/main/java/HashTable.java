@@ -1,3 +1,5 @@
+import Hashers.StringHasher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,10 +19,10 @@ public class HashTable
 {
     /**
      * The constructor is given a table size (i.e. how big to make the array)
-     * and a StringHasher, which is used to hash the strings.
+     * and a Hashers.StringHasher, which is used to hash the strings.
      *
      * @param tableSize number of elements in the hash array
-     *        hasher    Object that creates the hash code for a string
+     * hasher    Object that creates the hash code for a string
      * @see StringHasher
      */
     String[] theArray;
@@ -29,8 +31,7 @@ public class HashTable
     StringHasher hasher;
 
 
-    public HashTable(int tableSize, StringHasher hasher)
-    {
+    public HashTable(int tableSize, StringHasher hasher) {
         arraySize = tableSize;
         theArray = new String[tableSize];
         this.hasher = hasher;
@@ -43,7 +44,7 @@ public class HashTable
 
         for (int i = 0; i <arraySize; i++){
 
-           Integer newElement = wordsFromFile.get(i);
+            Integer newElement = wordsFromFile.get(i);
 //            theArray[newElement] = wordsFromFile.get(i);
 
         }
@@ -56,8 +57,7 @@ public class HashTable
      *
      * @param s String to add
      */
-    public void add(String s)
-    {
+    public void add(String s) {
         int wordIndex = hasher.hash(s);
         while(theArray[wordIndex]!="-1"){
             wordIndex++;
@@ -75,8 +75,7 @@ public class HashTable
      *
      * @param wordToCheck String to look up
      */
-    public boolean lookup(String wordToCheck)
-    {
+    public boolean lookup(String wordToCheck) {
         int arrayIndexHash = hasher.hash(wordToCheck);
         while(theArray[arrayIndexHash] != "-1"){
             if(theArray[arrayIndexHash].equals(wordToCheck)){
@@ -98,8 +97,7 @@ public class HashTable
      *
      * @param s String to remove
      */
-    public void remove(String s)
-    {
+    public void remove(String s) {
 
     }
 }

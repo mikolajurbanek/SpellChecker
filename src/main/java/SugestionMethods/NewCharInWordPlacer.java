@@ -1,6 +1,6 @@
+package SugestionMethods;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class NewCharInWordPlacer {
 
@@ -8,24 +8,22 @@ public class NewCharInWordPlacer {
     ArrayList<String> letterInsertedWords = new ArrayList<>();
     boolean isLetterInserted = false;
 
-    public ArrayList<String> letterPlacer(String word){
+    public ArrayList<String> letterPlacer(String word) {
 
         char[] theWord = word.toCharArray();
         char[] newWord = new char[theWord.length+1];
 
         for (char c: alphabet) {
-            for (int j=0; j<newWord.length; j++) {  //loop for insertin in each place
+            for (int j = 0; j<newWord.length; j++) {  //loop for insertin in each place
                 for (int i = 0; i<theWord.length; i++) {  //loop for iterating through old word
                     if(i==j){
                         newWord[i] = c;
                         newWord[i+1] = theWord[i];
                         isLetterInserted = true;
-                    }
-                    else {
+                    } else {
                         if(isLetterInserted) {
                             newWord[i+1] = theWord[i];
-                        }
-                        else{
+                        } else{
                             newWord[i] = theWord[i];
                         }
                     }

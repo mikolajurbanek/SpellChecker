@@ -1,3 +1,5 @@
+package SugestionMethods;
+
 import java.util.ArrayList;
 
 
@@ -13,12 +15,11 @@ public class DeletingCharacterFromWord {
         char[] newWord = new char[theWord.length];
 
 
-        for (int j=0; j<newWord.length; j++) {  //loop for deleting each place
+        for (int j = 0; j<newWord.length; j++) {  //loop for deleting each place
             for (int i = 0; i<theWord.length; i++) {  //loop for iterating through old word
                 if(i==j){
                     newWord[i] = ' ';
-                }
-                else {
+                } else {
                     newWord[i] = theWord[i];
                 }
 

@@ -1,3 +1,5 @@
+package Hashers;
+
 /**
  *
  * ICS 23 Summer 2004
@@ -12,8 +14,7 @@
 public class DegenerateStringHasher
         implements StringHasher
 {
-    public int hash(String s)
-    {
+    public int hash(String s) {
         return 0;
     }
 }

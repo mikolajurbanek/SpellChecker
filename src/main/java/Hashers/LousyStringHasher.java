@@ -1,11 +1,10 @@
-public class LousyStringHasher implements StringHasher
-{
-    public int hash(String wordToHash)
-    {
+package Hashers;
+
+public class LousyStringHasher implements StringHasher {
+    public int hash(String wordToHash) {
         int hashKeyValue = 0;
 
-        for (int i = 0; i < wordToHash.length(); i++)
-        {
+        for (int i = 0; i < wordToHash.length(); i++) {
             int charCode = wordToHash.charAt(i);
 
             int hKVTemp = hashKeyValue;

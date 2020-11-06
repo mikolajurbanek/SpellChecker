@@ -3,6 +3,8 @@
 // (powered by FernFlower decompiler)
 //
 
+import Hashers.StringHasher;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

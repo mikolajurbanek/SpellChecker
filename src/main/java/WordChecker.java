@@ -1,3 +1,8 @@
+import SugestionMethods.DeletingCharacterFromWord;
+import SugestionMethods.LettersReplacer;
+import SugestionMethods.NewCharInWordPlacer;
+import SugestionMethods.SwitchAdjacentChars;
+
 import java.util.ArrayList;
 
 /**
@@ -31,8 +36,7 @@ public class WordChecker
     DeletingCharacterFromWord deletingCharacterFromWord = new DeletingCharacterFromWord();
     LettersReplacer lettersReplacer = new LettersReplacer();
 
-    public WordChecker(WordList wordList)
-    {
+    public WordChecker(WordList wordList) {
         this.wordList = wordList;
     }
 
@@ -44,8 +48,7 @@ public class WordChecker
      * @param word Word to chack against the internal word list
      * @return bollean indicating if the word was found or not.
      */
-    public boolean wordExists(String word)
-    {
+    public boolean wordExists(String word) {
         return wordList.lookup(word);
 //        return true;
     }
@@ -59,8 +62,7 @@ public class WordChecker
      * @param word String to check against
      * @return A list of plausible matches
      */
-    public ArrayList getSuggestions(String word)
-    {
+    public ArrayList getSuggestions(String word) {
         ArrayList<String> sugestions = new ArrayList<String>();
         sugestions.addAll(switchAdjacentChars.switchAdjacent(word));
         sugestions.addAll(newCharInWordPlacer.letterPlacer(word));

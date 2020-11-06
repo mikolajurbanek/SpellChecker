@@ -1,8 +1,9 @@
+package Hashers;
+
 /**
- *
  * ICS 23 Summer 2004
  * Project #5: Lost for Words
- *
+ * <p>
  * A common interface used by all hash functions for strings.  This allows
  * the HashTable class to be built to use any hash function.
  */

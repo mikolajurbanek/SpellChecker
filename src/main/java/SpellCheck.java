@@ -1,4 +1,10 @@
-import java.io.*;
+import Hashers.BetterStringHasher;
+import Hashers.DegenerateStringHasher;
+import Hashers.LousyStringHasher;
+import Hashers.StringHasher;
+
+import java.io.IOException;
+import java.io.PrintStream;
 
 public class
 SpellCheck {
@@ -11,11 +17,10 @@ SpellCheck {
         if (args.length == 0) {
             showUsageMessage();
         } else {
-            String lastArg = args[args.length - 1];
             String path = "src/wordlist.txt";
             Object object = new LousyStringHasher();
             PrintStream printStream = System.out;
-            boolean isQuiet = false;
+            boolean timeCheck = false;
             String wordToCheck = "example";
 
             for(int i = 0; i < args.length - 1; ++i) {
@@ -23,9 +28,9 @@ SpellCheck {
                     case "-degenerate" -> object = new DegenerateStringHasher();
                     case "-lousy" -> object = new LousyStringHasher();
                     case "-better" -> object = new BetterStringHasher();
-                    case "-quiet" -> {
-                        printStream = new PrintStream(new NullOutputStream());
-                        isQuiet = true;
+                    case "-timeCheck" -> {
+//                        printStream = new PrintStream(new NullOutputStream());
+                        timeCheck = true;
                     }
                     case "-wordlist" -> {
                         ++i;
@@ -37,7 +42,7 @@ SpellCheck {
                     }
                     case "word:" -> {
                         ++i;
-                        if (i > args.length - 1) {
+                        if (i >= args.length) {
                             showUsageMessage();
                             return;
                         }
@@ -46,20 +51,17 @@ SpellCheck {
                 }
             }
 
-            if (lastArg.charAt(0) == '-') {
-                showUsageMessage();
-            } else {
-                try {
+            try {
                     long time1 = System.currentTimeMillis();
                     (new Checker()).check(wordToCheck, path, (StringHasher)object, printStream);
                     long time2 = System.currentTimeMillis();
-                    if (isQuiet) {
-                        System.out.println("Checker ran in " + (time2 - time1) + "ms");
-                    }
+                if (timeCheck) {
+                    System.out.println("Checker ran in " + (time2 - time1) + "ms");
+                }
                 } catch (IOException var11) {
                     var11.printStackTrace();
                 }
-            }
+//            }
         }
     }
 
