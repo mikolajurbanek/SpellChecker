@@ -81,7 +81,7 @@ public class HashTable
         while(theArray[arrayIndexHash] != "-1"){
             if(theArray[arrayIndexHash].equals(wordToCheck)){
                 System.out.println(theArray[arrayIndexHash]);
-                System.out.println( wordToCheck + " word was found at index " + String.valueOf(arrayIndexHash));
+//                System.out.println( wordToCheck + " word was found at index " + String.valueOf(arrayIndexHash));
                 return true;
             }
             ++arrayIndexHash;

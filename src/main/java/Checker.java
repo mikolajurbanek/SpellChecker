@@ -44,18 +44,19 @@ public class Checker {
                     if(!wordChecker.wordExists(wordToCheck)) {
                         printStream.println();
                         printStream.println("     word not found: " + wordToCheck);
-                    }
+
 //                } while(wordSuggestions.size() <= 0);
 
-                Collections.sort(wordSuggestions);
-                printStream.println("  perhaps you meant: ");
-                Iterator iterator = wordSuggestions.iterator();
+                        Collections.sort(wordSuggestions);
+                        printStream.println("  perhaps you meant: ");
+                        Iterator iterator = wordSuggestions.iterator();
 
-                while(iterator.hasNext()) {
-                    String potentialHint = (String)iterator.next();
-                    wordChecker.wordExists(potentialHint);
+                        while (iterator.hasNext()) {
+                            String potentialHint = (String) iterator.next();
+                            wordChecker.wordExists(potentialHint);
 //                    printStream.println("          " + hint + " ");
-                }
+                        }
+                    }
 //                for (Object w: wordSuggestions) {
 //                    System.out.println("d" + w);
 //                }

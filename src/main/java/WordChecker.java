@@ -27,6 +27,8 @@ public class WordChecker
      * @see WordList
      */
     WordList wordList;
+    NewCharInWordPlacer newCharInWordPlacer = new NewCharInWordPlacer();
+    SwitchAdjacentChars switchAdjacentChars = new SwitchAdjacentChars();
 
     public WordChecker(WordList wordList)
     {
@@ -58,30 +60,12 @@ public class WordChecker
      */
     public ArrayList getSuggestions(String word)
     {
-        return switchAdjacentChars(word);
+        ArrayList<String> sugestions = new ArrayList<String>();
+        sugestions.addAll(switchAdjacentChars.switchAdjacent(word));
+        sugestions.addAll(newCharInWordPlacer.letterPlacer(word));
+        return sugestions;
 
     }
 
-    public ArrayList switchAdjacentChars(String word) {
-        ArrayList<String> switchAdjacentCharsWords = new ArrayList<>();
-        char[] theWord = word.toCharArray();
-        char tempLetter;
-        for (int i = 0; i < theWord.length -1; i++) {
 
-
-            tempLetter = theWord[i];
-            theWord[i] = theWord[i+1];
-            theWord[i+1] = tempLetter;
-
-            String newWord = new String(theWord);
-            switchAdjacentCharsWords.add(newWord);
-            theWord = word.toCharArray();
-        }
-//
-//        for (String w: switchAdjacentCharsWords) {
-//            System.out.println(w);
-//
-//        }
-        return switchAdjacentCharsWords;
-    }
 }
